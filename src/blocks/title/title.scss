@@ -1,0 +1,9 @@
+@use 'lib' as *;
+
+.title {
+	$self: &;
+
+	color: $blue-dark;
+	font-weight: 600;
+
+}

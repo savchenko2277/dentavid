@@ -1,0 +1,23 @@
+$matches: (
+	xxxxlg: 1920,
+	xxxlg: 1680,
+	xxlg: 1440,
+	xlg: 1280,
+	lg: 1100,
+	md: 960,
+	sm: 780,
+	xs: 640,
+	xxs: 480,
+	xxxs: 360
+);
+
+$background: #FFFFFF;
+$text: #212529;
+$blue-dark: #205379;
+$blue-gradient: linear-gradient(90deg, #20ABBA 0%, #38CAD8 100%);
+$blue-gradient-reverse: linear-gradient(90deg, #38CAD8 0%, #20ABBA 100%);
+$blue: #1AB0BB;
+$transition: 0.3s ease-in-out;
+
+$container: 1240px;
+$size: 16px;

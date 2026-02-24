@@ -1,0 +1,409 @@
+@use 'lib' as *;
+
+.header {
+	$self: &;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+
+	display: grid;
+	grid-template-rows: 1fr max-content;
+	transition: grid-template-rows $transition;
+
+	&.is-scroll {
+		grid-template-rows: 0fr max-content;
+	}
+
+	&__top {
+		background: #F8F8F8;
+		overflow: hidden;
+
+		@include media("<=md") {
+			display: none;
+		}
+	}
+
+	&__top-container {
+		padding: 8px 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__side {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		&_first {
+			gap: fluid(48px, 24px);
+		}
+
+		&_second {
+			gap: 24px;
+		}
+	}
+
+	&__text {
+		font-size: 12px;
+		color: #9B9B9B;
+		font-weight: 500;
+		display: flex;
+		flex-direction: column;
+
+		@include media("<=xlg") {
+			display: none;
+		}
+
+		@include media("<=md") {
+			display: block;
+		}
+	}
+
+	&__address {}
+
+	&__hours {}
+
+	&__mail {
+		transition: all $transition;
+		font-weight: 500;
+		text-decoration: underline;
+
+		&:hover {
+			color: $blue;
+		}
+	}
+
+	&__order {
+		color: $blue;
+		font-weight: 500;
+		text-decoration: underline;
+	}
+
+	&__callback {
+		@include flex-center;
+
+		color: #FFFFFF;
+		background: $blue;
+		padding: 8px 16px;
+		border-radius: 30px;
+	}
+
+	&__socials {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 6px;
+	}
+
+	&__social {
+		img {
+			object-fit: contain;
+			width: 36px;
+			width: 36px;
+		}
+	}
+
+	&__main {
+		background: #FFFFFF;
+		box-shadow: 0px 4px 40px 0px #0000001A;
+	}
+
+	&__main-container {
+		padding: 12px 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+	}
+
+	&__logo {
+		img {
+			object-fit: contain;
+			height: fluid(52px, 40px);
+		}
+
+		position: relative;
+		z-index: 2;
+	}
+
+	&__menu {
+		display: flex;
+		flex-direction: row;
+		align-items: start;
+
+		@include media("<=md") {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: #ffffff;
+			padding: 20px;
+			padding-top: 110px;
+
+			flex-direction: column;
+			justify-content: start;
+			transition: all $transition;
+
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+
+			&.active {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: all;
+			}
+		}
+	}
+
+	&__nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		@include media("<=md") {
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 24px;
+
+		@include media("<=md") {
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+			margin-bottom: 32px;
+		}
+	}
+
+	&__item {
+
+		>a {
+			text-wrap: nowrap;
+			transition: all $transition;
+
+			&:hover {
+				color: $blue;
+			}
+
+			@include media("<=md") {
+				font-weight: 500;
+				font-size: 18px;
+				width: 100%;
+			}
+		}
+
+		&_menu {
+			position: relative;
+
+			@include media("<=md") {
+				display: grid;
+				grid-template-rows: max-content 0fr;
+				transition: all $transition;
+			}
+		}
+
+		&.active #{$self}__item-head {
+			margin-bottom: 16px;
+			&::after {
+				transform: rotate(180deg);
+			}
+		}
+
+		&.active {
+			grid-template-rows: max-content 1fr
+		}
+
+		@include media("<=md") {
+			width: 100%;
+		}
+
+		@include media(">md") {
+			&:hover #{$self}__item-list {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: all;
+			}
+
+			&:hover #{$self}__item-head {
+				&::after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+	&__item-head {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+		text-wrap: nowrap;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 16px;
+			height: 10px;
+			background: url("../img/icons/arrow-down.svg") no-repeat center / contain;
+			transition: all $transition;
+		}
+
+		@include media("<=md") {
+			font-weight: 500;
+			font-size: 18px;
+			width: 100%;
+			transition: all $transition;
+		}
+	}
+
+	&__item-list {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		min-width: 140px;
+		width: fit-content;
+		background: #FFFFFF;
+		box-shadow: 0px 4px 40px 0px #0000001A;
+		padding: 16px;
+		border-radius: 8px;
+		transition: all $transition;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+
+		@include media("<=md") {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: all;
+			position: static;
+			min-width: 0;
+			width: 100%;
+			background: none;
+			box-shadow: none;
+			padding: 0;
+			border-radius: 0;
+			overflow: hidden;
+		}
+	}
+
+	&__item-link {
+		transition: all $transition;
+
+		&:hover {
+			color: $blue;
+		}
+
+		@include media("<=md") {
+			font-size: 18px;
+		}
+	}
+
+	&__phone {
+		font-size: 18px;
+		font-weight: 500;
+		text-decoration: underline;
+		transition: all $transition;
+
+		&:hover {
+			color: $blue;
+		}
+
+		@include media("<=xlg") {
+			display: none;
+		}
+	}
+
+	&__burger {
+
+		@include flex-center;
+		position: relative;
+		z-index: 10;
+		width: 28px;
+		height: 20px;
+
+		@include media(">md") {
+			display: none;
+		}
+
+		&.active {
+			span {
+				opacity: 0;
+			}
+
+			&::after {
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+
+			&::before {
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) rotate(-45deg);
+			}
+		}
+
+		&::after {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			content: '';
+			width: 100%;
+			height: 2px;
+			background: #000000;
+			border-radius: 8px;
+			transition: all $transition;
+
+		}
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			width: 100%;
+			height: 2px;
+			background: #000000;
+			border-radius: 8px;
+			transition: all $transition;
+		}
+
+		span {
+			width: 100%;
+			height: 2px;
+			background: #000000;
+			position: relative;
+			border-radius: 8px;
+			transition: all $transition;
+		}
+	}
+
+	&__mobile {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		@include media(">md") {
+			display: none;
+		}
+	}
+
+}

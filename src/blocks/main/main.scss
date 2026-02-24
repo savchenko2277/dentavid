@@ -1,0 +1,11 @@
+@use 'lib' as *;
+
+.main {
+	$self: &;
+
+	padding-top: 150px;
+
+	@include media("<=md") {
+		padding-top: 80px;
+	}
+}

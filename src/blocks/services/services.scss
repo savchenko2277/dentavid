@@ -1,0 +1,99 @@
+@use 'lib' as *;
+
+.services {
+	$self: &;
+
+	padding: fluid(50px, 25px) 0;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__title {	
+		font-size: fluid(40px, 24px);
+		margin-bottom: 20px;
+	}
+
+	&__desc {
+		font-size: fluid(24px, 16px);
+		margin-bottom: 25px;
+		max-width: 873px;
+		text-align: center;
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: fluid(28px, 16px);
+
+		@include media("<=md") {
+			grid-template-columns: repeat(2, 1fr)
+		}
+
+		@include media("<=xs") {
+			grid-template-columns: 100%;
+		}
+	}
+
+	&__item {
+		padding: 16px 30px 32px 30px;
+		border-radius: 30px;
+		box-shadow: 0px 4px 40px 0px #0000001A;
+		background: #ffffff;
+		display: flex;
+		flex-direction: column;
+		min-height: 348px;
+	}
+
+	&__item-title {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color: #205379;
+		font-size: fluid(18px, 16px);
+		gap: 8px;
+		font-weight: 600;
+		margin-bottom: 16px;
+
+		img {
+			width: 36px;
+			object-fit: contain;
+		}
+	}
+
+	&__item-desc {
+		font-size: 15px;
+		margin-bottom: 16px;
+	}
+
+	&__list {
+		font-size: 15px;
+		padding-left: 24px;
+		margin-bottom: 18px;
+
+		li {
+			list-style: disc;
+		}
+	}
+
+	&__more {
+		@include flex-center;
+
+		background: $blue;
+		color: #ffffff;
+		margin-top: auto;
+		padding: 8px;
+		width: 100%;
+		max-width: 200px;
+		font-size: 15px;
+		border-radius: 30px;
+		transition: all $transition;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+}

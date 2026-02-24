@@ -1,0 +1,105 @@
+@use 'lib' as *;
+
+.footer {
+	$self: &;
+
+	padding: 40px 0;
+	background: #49C1CD;
+	color: #FFFFFF;
+
+	&__container {}
+
+	&__main {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		justify-content: space-between;
+		min-height: 300px;
+		margin-bottom: 24px;
+		gap: 48px;
+
+		@include media("<=lg") {
+			grid-template-columns: 100%;
+		}
+	}
+
+	&__columns {
+		display: grid;
+		grid-template-columns: repeat(4, auto);
+		gap: fluid(75px, 24px);
+
+		@include media("<=sm") {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include media("<=xs") {
+			grid-template-columns: 100%;
+		}
+	}
+
+	&__column {}
+
+	&__column-title {
+		font-weight: 600;
+		font-size: fluid(18px, 16px);
+		margin-bottom: 12px;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&__list-item {
+		font-size: 14px;
+		line-height: 120%;
+		transition: all $transition;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__side {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+	}
+
+	&__links {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: fluid(36px, 24px);
+	}
+
+	&__link {
+		text-decoration: underline;
+		font-size: fluid(20px, 16px);
+		line-height: 150%;
+		transition: all $transition;
+	}
+
+	&__logo {
+		object-fit: contain;
+		height: fluid(52px, 40px);
+	}
+
+	&__bottom {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		font-size: 14px;
+		flex-wrap: wrap;
+		gap: 12px;
+
+		@include media("<=xs") {
+			justify-content: start;
+		}
+	}
+
+	&__guard {}
+
+	&__policy {}
+
+}

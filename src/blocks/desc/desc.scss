@@ -1,0 +1,23 @@
+@use 'lib' as *;
+
+.desc {
+	$self: &;
+
+	padding: fluid(50px, 25px) 0;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__title {
+		margin-bottom: 16px;
+		font-size: fluid(36px, 24px);
+	}
+
+	&__text {
+		font-size: fluid(20px, 16px);
+	}
+
+}

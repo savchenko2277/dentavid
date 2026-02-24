@@ -1,0 +1,82 @@
+@use 'lib' as *;
+
+.answers {
+	$self: &;
+	
+	padding: fluid(50px, 25px) 0;
+	background: #FAF6F3;
+
+	&__container {
+
+	}
+
+	&__title {
+		font-weight: 600;
+		font-size: fluid(48px, 24px);
+		margin-bottom: 24px;
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&__item {
+		display: grid;
+		grid-template-rows: max-content 0fr;
+		color: #205379;
+		padding: 16px 30px;
+		background: #F9F9F9;
+		transition: all $transition;
+
+		&.active {
+			grid-template-rows: max-content 1fr;
+			
+			#{$self}__item-icon {
+				&::after {
+					transform: translate(-50%, -50%) rotate(0deg);
+				}
+			}
+		}
+	}
+
+	&__item-head {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		font-weight: 600;
+		font-size: fluid(20px, 16px);
+		cursor: pointer;
+	}
+
+	&__item-icon {
+		width: 40px; height: 40px;
+		border-radius: 50%;
+		position: relative;
+		background: #49C1CD;
+		flex: 0 0 auto;
+
+		&::after, &::before {
+			position: absolute;
+			content: '';
+			width: 24px; height: 1px;
+			background: #FFFFFF;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		&::after {
+			transition: all $transition;
+			transform: translate(-50%, -50%) rotate(90deg);
+		}
+	}
+
+	&__item-content {
+		overflow: hidden;
+	}
+
+}

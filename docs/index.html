@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="css/style.css?v=1771976758878">
-    <link rel="stylesheet" href="css/swiper.css?v=1771976758878">
+    <link rel="stylesheet" href="css/style.css?v=1772026098231">
+    <link rel="stylesheet" href="css/swiper.css?v=1772026098231">
     <title></title>
 </head>
 <body id="home">
@@ -127,7 +127,14 @@
             <div class="promo__swiper swiper">
                 <div class="swiper-wrapper">
                     <div class="promo__slide swiper-slide">
-                        <img loading="lazy" src="./img/promo.webp" alt="">
+                        <picture>
+                            <!-- Для экранов шире 1024px -->
+                            <source srcset="./img/promo.webp" media="(min-width: 1024px)">
+                            <!-- Для экранов от 600px до 1023px -->
+                            <source srcset="./img/promo-tablet.webp" media="(min-width: 600px)">
+                            <!-- Для всех остальных (мобильные) -->
+                            <img src="./img/promo-mobile.webp" alt="Описание баннера">
+                        </picture>
                         <div class="promo__slide-hidden">
                             <h2>Lorem ipsum dolor sit amet.</h2>
                             <p>
@@ -138,18 +145,14 @@
                         </div>
                     </div>
                     <div class="promo__slide swiper-slide">
-                        <img loading="lazy" src="./img/promo.webp" alt="">
-                        <div class="promo__slide-hidden">
-                            <h2>Lorem ipsum dolor sit amet.</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat tempore ratione
-                                sapiente
-                                eum ipsa nobis iure consectetur nostrum alias suscipit.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="promo__slide swiper-slide">
-                        <img loading="lazy" src="./img/promo.webp" alt="">
+                        <picture>
+                            <!-- Для экранов шире 1024px -->
+                            <source srcset="./img/promo.webp" media="(min-width: 1024px)">
+                            <!-- Для экранов от 600px до 1023px -->
+                            <source srcset="./img/promo.webp" media="(min-width: 600px)">
+                            <!-- Для всех остальных (мобильные) -->
+                            <img  src="./img/promo.webp" alt="Описание баннера">
+                        </picture>
                         <div class="promo__slide-hidden">
                             <h2>Lorem ipsum dolor sit amet.</h2>
                             <p>
@@ -802,7 +805,7 @@
     </div>
 </footer>
 
-<script src="js/common.js?v=1771976758878"></script>
+<script src="js/common.js?v=1772026098231"></script>
 </body>
 
 </html>

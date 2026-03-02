@@ -64,7 +64,7 @@
 	}
 
 	&__card-image {
-		height: 96px;
+		height: fluid(96px, 64px);
 		object-fit: contain;
 	}
 

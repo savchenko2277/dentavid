@@ -17,7 +17,7 @@
 		line-height: 150%;
 	}
 
-	&__swiper {
+	&__swiper.swiper {
 		padding: 24px;
 		box-shadow: 0px 4px 25px 0px #0000001A;
 		background: #ffffff;
@@ -32,7 +32,7 @@
 		}
 	}
 
-	&__item {
+	&__item.swiper-slide {
 		position: relative;
 		height: 230px;
 		border-radius: 20px;
